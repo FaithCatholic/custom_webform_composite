@@ -1,0 +1,7 @@
+custom_webform_composite:
+  version: 1.x
+  css:
+    theme:
+      css/custom_webform_composite.css: {}
+  dependencies:
+    - webform/webform.composite

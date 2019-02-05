@@ -1,0 +1,62 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+module_load_include('inc', 'webform', 'includes/webform.theme.template');
+
+/**
+ * Implements hook_theme().
+ */
+function custom_webform_composite_theme() {
+  return [
+    'webform_request_parish' => [
+      'render element' => 'element',
+    ],
+    'webform_request_school' => [
+      'render element' => 'element',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Customizes the grant application form in various ways to make it more user-
+ * friendly.
+ */
+function custom_webform_composite_form_alter(&$form, $form_state, $form_id) {
+  // Check to make sure we're on a webform entity before applying any changes.
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof \Drupal\Core\Entity\EntityFormInterface) {
+    $entity = $form_object->getEntity();
+    if ($entity->getEntityTypeId() === 'webform_submission') {
+      // Provides a list of where we can expect to find the custom composite
+      // elements we're looking for, as well as the template to map them to.
+      //
+      // It is assumed the composite element is placed inside a wizard page. The
+      // top-level key is for the page, and the two inner values are for the
+      // composite key and the template to map it to, respectively.
+      //
+      // You may change the values here to quickly add or edit the assumptions
+      // that are hard-coded into this module.
+      $template_list = array(
+        'parish_ministry_grant_requests' => array(
+          'composite_key' => 'composite_parish_ministry',
+          'template' => 'webform_request_parish',
+        ),
+        'school_grant_requests' => array(
+          'composite_key' => 'composite_school',
+          'template' => 'webform_request_school',
+        ),
+      );
+
+      foreach ($template_list as $page_key => $template_map) {
+        // We want to make sure both the page key and the composite key exist.
+        if (array_key_exists($page_key, $form['elements']) && array_key_exists($template_map['composite_key'], $form['elements'][$page_key])) {
+          // Map the composite element to its template.
+          $form['elements'][$page_key][$template_map['composite_key']]['#element']['#theme'] = [$template_map['template']];
+        }
+      }
+    }
+  }
+}

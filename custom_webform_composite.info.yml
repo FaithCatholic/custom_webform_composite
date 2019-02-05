@@ -1,0 +1,7 @@
+name: 'Custom Webform Composite'
+type: module
+description: 'Provides customizations for webform composite elements.'
+package: 'Webform'
+core: 8.x
+dependencies:
+  - 'webform:webform'

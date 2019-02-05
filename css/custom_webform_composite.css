@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Custom styles for webform composite.
+ */
+
+/**
+ * Fix the table layout so that long elements don't extend past the width of
+ * the container.
+ */
+.webform-multiple-table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/**
+ * With table-layout: fixed, the first table cell sets the width for the rest
+ * of the table cells. We hide the header (which doesn't contain anything,
+ * anyway) so that the table cell widths calculate properly.
+ */
+.webform-multiple-table table thead {
+  display: none;
+}
+
+/* Ensures elements inside cells wrap so they don't break the container. */
+.webform-multiple-table table td:first-child {
+  white-space: normal;
+}
+
+.webform-multiple-table tbody tr {
+  border-bottom: 4px dashed gray;
+}
+
+.webform-multiple-table p {
+  margin-bottom: 1em;
+}
+
+/**
+ * <select> elements are 100% width by default and break to a new line. We want
+ * them to sit inline with labels instead.
+ */
+.webform-multiple-table td select {
+  width: auto;
+}

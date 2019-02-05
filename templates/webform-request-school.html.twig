@@ -1,0 +1,176 @@
+{#
+/**
+ * @file
+ * Custom template for the school grant request composite element.
+ *
+ * Sub-elements added or reordered in the custom composite UI will not take
+ * effect unless added to this file.
+ *
+ * The specific composite element/key that gets mapped to this template file is
+ * controlled in the .module file. If you change the composite key, the
+ * template mapping will break unless you update the mapping information in
+ * webform_grant_requests_form_alter().
+ *
+ * Changes to this template require a Twig cache clear, which can be
+ * accomplished with the following command:
+ *
+ *   drush php-eval "\Drupal\Core\PhpStorage\PhpStorageFactory::get('twig')->deleteAll();"
+ *
+ * Available variables:
+ * - element: The webform composite sub-elements to output.
+ */
+#}
+{{ attach_library('webform_grant_requests/webform_grant_requests') }}
+
+<h2><strong>Begin your request below:</strong></h2>
+
+<fieldset>
+    <legend>Contact Information</legend>
+    <div class="fieldset-wrapper">
+        {% if element.type_of_grant_request_ %}
+            {{ element.type_of_grant_request_ }}
+        {% endif %}
+        {% if element.arch_diocese %}
+            {{ element.arch_diocese }}
+        {% endif %}
+        {% if element.school_name %}
+            {{ element.school_name }}
+        {% endif %}
+        {% if element.principal_ %}
+            {{ element.principal_ }}
+        {% endif %}
+        {% if element.address %}
+            {{ element.address }}
+        {% endif %}
+        {% if element.your_name %}
+            {{ element.your_name }}
+        {% endif %}
+        {% if element.your_email %}
+            {{ element.your_email }}
+        {% endif %}
+        {% if element.telephone %}
+            {{ element.telephone }}
+        {% endif %}
+    </div>
+</fieldset>
+<h2><strong>Grant Accountability 2018-2019</strong></h2>
+<h3><strong>Please provide detailed information for the grant you received in 2018 - 2019. Please ensure you provide a comprehensive description of how grant funds were utilized.</strong></h3>
+
+<fieldset>
+    <legend>African American Programs</legend>
+    <div class="fieldset-wrapper">
+        {% if element.african_american_grant_awarded_in_2018_2019 %}
+            {{ element.african_american_grant_awarded_in_2018_2019 }}
+        {% endif %}
+        {% if element.number_of_african_americans_served %}
+            {{ element.number_of_african_americans_served }}
+        {% endif %}
+        {% if element.detail_grant_use %}
+            {{ element.detail_grant_use }}
+        {% endif %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Native American Programs</legend>
+    <div class="fieldset-wrapper">
+        {% if element.native_american_grant_awarded_in_2018_2019 %}
+            {{ element.native_american_grant_awarded_in_2018_2019 }}
+        {% endif %}
+        {% if element.number_of_native_americans_served %}
+            {{ element.number_of_native_americans_served }}
+        {% endif %}
+        {% if element.detail_grant_use_na %}
+            {{ element.detail_grant_use_na }}
+        {% endif %}
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Did you submit Project Newsflash materials on the following dates?</legend>
+    <div class="fieldset-wrapper">
+        {% if element.feb28 %}
+            {{ element.feb28 }}
+        {% endif %}
+        {% if element.may31 %}
+            {{ element.may31 }}
+        {% endif %}
+        {% if element.aug31 %}
+            {{ element.aug31 }}
+        {% endif %}
+        {% if element.nov30 %}
+            {{ element.nov30 }}
+        {% endif %}
+    </div>
+</fieldset>
+<h2><strong>Grant Requests 2019-2020</strong></h2>
+<h3><strong>Please Complete This Section With Information For New Grant Requests For The 2019 - 2020 Grant Year</strong></h3>
+
+<fieldset>
+    <legend>Student Information</legend>
+    <div class="fieldset-wrapper">
+        {% if element.number_of_african_american_students %}
+            {{ element.number_of_african_american_students }}
+        {% endif %}
+        {% if element.number_of_native_american_students %}
+            {{ element.number_of_native_american_students }}
+        {% endif %}
+        {% if element.total_number_of_students_in_the_school %}
+            {{ element.total_number_of_students_in_the_school }}
+        {% endif %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Cost and Tuition Information</legend>
+    <div class="fieldset-wrapper">
+        {% if element.annual_cost_per_student %}
+            {{ element.annual_cost_per_student }}
+        {% endif %}
+        {% if element.annual_tuition_perstudent %}
+            {{ element.annual_tuition_perstudent }}
+        {% endif %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Budget Information</legend>
+    <div class="fieldset-wrapper">
+        {% if element.annual_total_budget_for_theschool %}
+            {{ element.annual_total_budget_for_theschool }}
+        {% endif %}
+        {% if element.actual_annual_tuition_received %}
+            {{ element.actual_annual_tuition_received }}
+        {% endif %}
+        {% if element.number_of_teachers_catechists %}
+            {{ element.number_of_teachers_catechists }}
+        {% endif %}
+        {% if element.average_annual_salary_forteachers %}
+            {{ element.average_annual_salary_forteachers }}
+        {% endif %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Other Sources of Financial Support</legend>
+    <div class="fieldset-wrapper">
+        <p><strong>Please list the other organizations and activities from which you receive financial support and how much is received from each one, i.e. Diocesan grants, Parish subsidies, Grants from Foundations and other organizations, fundraising etc. Please do not include amounts received from the Black and Indian Mission Office.</strong></p>
+        {% if element.other_sources_of_support %}
+            {{ element.other_sources_of_support }}
+        {% endif %}
+        {% if element.total_other_sources_of_funding %}
+            {{ element.total_other_sources_of_funding }}
+        {% endif %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Current Year (2019 - 2020) Grant Request</legend>
+    <div class="fieldset-wrapper">
+        {% if element.current_year_grant_amount_requested %}
+            {{ element.current_year_grant_amount_requested }}
+        {% endif %}
+        {% if element.detailed_description_of_how_the_grant_will_be_used_ %}
+            {{ element.detailed_description_of_how_the_grant_will_be_used_ }}
+        {% endif %}
+    </div>
+</fieldset>
